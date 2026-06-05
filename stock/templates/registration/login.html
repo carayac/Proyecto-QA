@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+<h4 class="nk-block-title">Sign in</h4>
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <input class="mt-2 btn btn-primary" type="submit" value="Login">
+</form>
+<div class="form-note-s2 pt-4">
+    New here? <a href="/register">Create an account</a>
+</div>
+{% endblock %}

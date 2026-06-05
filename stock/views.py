@@ -43,7 +43,6 @@ def get_client_ip(request):
         pass
     else:
         u.save()
-        return ip
     queryset = Stock.objects.all()
     querys = Category.objects.all()
     for chart in queryset:

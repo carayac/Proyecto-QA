@@ -24,6 +24,6 @@ urlpatterns = [
     path('scrumboard', views.scrum_list, name='scrumboard'),
     path('scrumboard_view', views.scrum_view, name='scrumboard_view'),
     path('contacts', views.contact, name='contacts'),
-    path('accounts/', include('registration.backends.default.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
