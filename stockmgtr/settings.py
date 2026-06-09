@@ -55,6 +55,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+ENABLE_DEBUG_TOOLBAR = env.bool('ENABLE_DEBUG_TOOLBAR', default=False)
+
+if DEBUG and ENABLE_DEBUG_TOOLBAR:
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE.insert(1, 'debug_toolbar.middleware.DebugToolbarMiddleware')
+    INTERNAL_IPS = ['127.0.0.1']
+
 ROOT_URLCONF = 'stockmgtr.urls'
 
 TEMPLATES = [
@@ -149,6 +156,8 @@ LOGIN_REDIRECT_URL = '/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#PARA CASO DE PRUEBA RF-01, SE CAMBIA LA RUTA DE MEDIA_URL PARA QUE APUNTE A LA CARPETA DE IMAGENES DENTRO DE STATIC
+
 MEDIA_URL = '/stock/static/images/'
 
 EMAIL_HOST = 'smtpd'

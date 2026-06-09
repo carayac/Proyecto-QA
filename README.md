@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Stock Management System.
 I have developed a stock management system using Django, a web-based application that allows me to track and manage inventory levels, orders, sales, sales history, analytics and deliveries as well as keeping track of user's activities.
 
@@ -97,3 +98,6 @@ python manage.py runserver
 ```
 
 Your Django project is now up and running on your local machine. Open your web browser and go to http://127.0.0.1:8000/ to see the default Django page.
+=======
+# Proyecto-QA
+>>>>>>> 45a51ec1cfa2226bba7325d49a6c6c7150f03f32

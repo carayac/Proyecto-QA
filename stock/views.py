@@ -74,13 +74,13 @@ def get_client_ip(request):
 @login_required
 def view_stock(request):
     title = "VIEW STOCKS"
-    everything = Stock.objects.all()
+    everything = Stock.objects.select_related('category').all()
     form = StockSearchForm(request.POST or None)
 
     context = {'everything': everything, 'form': form}
     if request.method == 'POST':
         category = form['category'].value()
-        everything = Stock.objects.filter(item_name__icontains=form['item_name'].value())
+        everything = Stock.objects.select_related('category').filter(item_name__icontains=form['item_name'].value())
         if category != '':
             everything = everything.filter(category_id=category)
 
