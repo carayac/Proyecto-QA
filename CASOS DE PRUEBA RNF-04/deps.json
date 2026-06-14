@@ -1,0 +1,92 @@
+{
+    "__main__": {
+        "bacon": 0,
+        "imports": [
+            "stock",
+            "stock.admin",
+            "stock.apps",
+            "stock.form",
+            "stock.models",
+            "stock.urls",
+            "stock.views"
+        ],
+        "name": "__main__",
+        "path": null
+    },
+    "stock": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "stock.urls"
+        ],
+        "name": "stock",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\__init__.py"
+    },
+    "stock.admin": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "stock.form"
+        ],
+        "name": "stock.admin",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\admin.py"
+    },
+    "stock.apps": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "name": "stock.apps",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\apps.py"
+    },
+    "stock.form": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "stock.admin",
+            "stock.views"
+        ],
+        "imports": [
+            "stock.models"
+        ],
+        "name": "stock.form",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\form.py"
+    },
+    "stock.models": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "stock.form",
+            "stock.views"
+        ],
+        "name": "stock.models",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\models.py"
+    },
+    "stock.urls": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__"
+        ],
+        "imports": [
+            "stock",
+            "stock.views"
+        ],
+        "name": "stock.urls",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\urls.py"
+    },
+    "stock.views": {
+        "bacon": 1,
+        "imported_by": [
+            "__main__",
+            "stock.urls"
+        ],
+        "imports": [
+            "stock.form",
+            "stock.models"
+        ],
+        "name": "stock.views",
+        "path": "C:\\Users\\Usuario\\Documents\\TEC\\Jun\\Proyecto-QA\\stock\\views.py"
+    }
+}
