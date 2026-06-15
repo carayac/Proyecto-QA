@@ -10,6 +10,7 @@ from .form import *
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.http import JsonResponse
+from django.utils import timezone
 
 # Create your views here.
 
@@ -189,6 +190,18 @@ def issue_item(request, pk):
         value.quantity = value.quantity - value.issue_quantity
         value.issued_by = str(request.user)
         if value.quantity >= 0:
+
+            StockHistory.objects.create(
+                category=value.category,
+                item_name=value.item_name,
+                quantity=value.quantity,
+                issue_quantity=value.issue_quantity,
+                receive_quantity=0,
+                issued_by=str(request.user),
+                received_by=value.received_by if value.received_by else '',
+                last_updated=timezone.now() 
+            )
+
             messages.success(request, "Issued Successfully, " + str(value.quantity) + " " + str(
                 value.item_name) + "s now left in Store")
             value.save()
@@ -197,6 +210,15 @@ def issue_item(request, pk):
 
         return redirect('/stock_detail/' + str(value.id))
 
+    context = {
+        "title": 'Issue ' + str(issue.item_name),
+        "issue": issue,
+        "form": form,
+        "username": 'Issued by: ' + str(request.user),
+    }
+    return render(request, "stock/add_stock.html", context)
+
+    
     context = {
         "title": 'Issue ' + str(issue.item_name),
         "issue": issue,
@@ -215,6 +237,18 @@ def receive_item(request, pk):
         value.issue_quantity = 0
         value.quantity = value.quantity + value.receive_quantity
         value.received_by = str(request.user)
+
+        StockHistory.objects.create(
+            category=value.category,
+            item_name=value.item_name,
+            quantity=value.receive_quantity,
+            issue_quantity=0,
+            receive_quantity=value.receive_quantity,
+            issued_by='',
+            received_by=str(request.user),
+            last_updated=timezone.now()
+        )
+
         value.save()
         messages.success(request, "Received Successfully, " + str(value.quantity) + " " + str(
             value.item_name) + "s now in Store")
